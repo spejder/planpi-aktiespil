@@ -1,0 +1,7 @@
+.htaccess
+.idea
+.svn
+logs
+uploads
+*~
+*.svn*
