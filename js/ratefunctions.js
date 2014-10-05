@@ -2,7 +2,7 @@
  * Created by jot on 05-10-14.
  */
 
-var rateFunction = function (min, max, jumpProbability, jumpMax) {
+var rateFunction = function (min, max, jumpProbability, jumpMax, statusContainer) {
 
     return function () {
 
@@ -49,7 +49,7 @@ var rateFunction = function (min, max, jumpProbability, jumpMax) {
             trend += (((Math.abs(oY - y)) / oY) * 100).toFixed(2);
             var trendLabel = '<span style="color: ' + trendColor + '; display: ' + trendDisplay + ';">' + trend + ' %</span>';
 
-            $(".container2").html(parseInt(y) + '<br>' + trendLabel);
+            statusContainer.html(parseInt(y) + '<br>' + trendLabel);
 
             point = {'x': x, 'y': parseInt(y), dataLabels: globalDataLabels};
             series.addPoint(point, true, true);
