@@ -1,0 +1,92 @@
+<style>
+    h1 {
+        font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+    }
+</style>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/highcharts.js"></script>
+<script type="text/javascript" src="js/ratefunctions.js"></script>
+<script type="text/javascript" src="js/stockchart.js"></script>
+
+<script type="text/javascript">
+
+    var globalDataLabels = {
+        enabled: true,
+        align: 'center',
+        style: {
+            fontWeight: 'bold',
+            'fontSize': '12pt',
+            'backgroundColor': '#ffffff',
+            'overflow': 'visible'
+        },
+        backgroundColor: '#ffffff',
+        y: -30,
+        x: 5,
+        verticalAlign: 'top',
+        crop: true
+    };
+
+    $(function () {
+
+        Highcharts.setOptions({
+            global: {
+                useUTC: false
+            }
+        });
+
+        var chart;
+
+        var colors = ['#7cb5ec', '#434348', '#90ed7d', '#f7a35c', '#8085e9',
+            '#f15c80', '#e4d354', '#8085e8', '#8d4653', '#91e8e1'];
+
+        $('#belieber').highcharts(stockChart("Belieber", colors[0], rateFunction(20, 200, 10, 180)));
+        $('#mcdonalds').highcharts(stockChart("Mc Donalds", colors[1], rateFunction(50, 1000, 10, 600)));
+        $('#planpi').highcharts(stockChart("Plan Pi", colors[2], rateFunction(800, 1000, 10, 300)));
+        $('#bobtheentrepreneur').highcharts(stockChart("Bob the Entrepreneur A/S", colors[3], rateFunction(50, 1000, 10, 600)));
+        $('#turneragency').highcharts(stockChart("Turner Agency", colors[4], rateFunction(50, 1000, 10, 600)));
+    });
+
+</script>
+<div style="width: 100%; text-align: center; font-size: 20pt;">
+    <h1>Aktiekurser</h1>
+</div>
+
+<table width="100%">
+
+    <tr>
+
+        <td>
+            <div id="planpi" style="min-width: 310px; width: 500px; height: 50%; margin: 0 auto">
+            </div>
+        </td>
+
+        <td></td>
+
+        <td>
+            <div id="belieber" style="min-width: 310px; width: 500px; height: 50%; margin: 0 auto">
+            </div>
+        </td>
+
+    </tr>
+
+    <tr>
+
+        <td>
+            <div id="mcdonalds" style="min-width: 310px; width: 500px; height: 50%; margin: 0 auto">
+            </div>
+        </td>
+
+        <td>
+            <div id="bobtheentrepreneur" style="min-width: 310px; width: 500px; height: 50%; margin: 0 auto">
+            </div>
+        </td>
+
+        <td>
+            <div id="turneragency" style="min-width: 310px; width: 500px; height: 50%; margin: 0 auto">
+            </div>
+        </td>
+
+    </tr>
+
+</table>
